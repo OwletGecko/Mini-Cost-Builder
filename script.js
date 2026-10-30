@@ -95,4 +95,68 @@ themeButton.addEventListener("click", function () {
   setTheme(document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark");
 });
 
+// Check-in questions: show right or wrong after the first answer, then lock the question.
+// Moving to the next lesson is never blocked.
+function normalise(text) {
+  return text.toLowerCase().replace(/[^a-z0-9 ]/g, " ").replace(/\s+/g, " ").trim();
+}
+
+function setFeedback(form, correct, answerText) {
+  var feedback = form.querySelector(".feedback");
+  var label = document.createElement("b");
+  label.textContent = correct ? "Correct. " : "Not quite. ";
+  feedback.textContent = "";
+  feedback.appendChild(label);
+  var message = correct ? "" : "Correct answer: " + answerText + ". ";
+  feedback.appendChild(document.createTextNode(message + form.dataset.explain));
+}
+
+function lockForm(form) {
+  form.dataset.done = "true";
+  Array.prototype.forEach.call(form.querySelectorAll("input, button"), function (el) {
+    el.disabled = true;
+  });
+}
+
+Array.prototype.forEach.call(document.querySelectorAll(".checkin"), function (form) {
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+    if (form.dataset.done) {
+      return;
+    }
+    var feedback = form.querySelector(".feedback");
+
+    if (form.dataset.type === "choice") {
+      var chosen = form.querySelector("input:checked");
+      if (!chosen) {
+        feedback.textContent = "Choose an answer first.";
+        return;
+      }
+      var options = form.querySelectorAll(".option");
+      var right = Number(form.dataset.correct);
+      var correct = Number(chosen.value) === right;
+      var answerText = options[right].querySelector("span").textContent;
+      options[right].classList.add("correct");
+      options[right].querySelector("span").appendChild(document.createTextNode(" (correct answer)"));
+      if (!correct) {
+        var mine = chosen.parentNode;
+        mine.classList.add("wrong");
+        mine.querySelector("span").appendChild(document.createTextNode(" (your answer)"));
+      }
+      setFeedback(form, correct, answerText);
+      lockForm(form);
+      return;
+    }
+
+    var input = form.querySelector("input[type=text]");
+    if (!input.value.trim()) {
+      feedback.textContent = "Type an answer first.";
+      return;
+    }
+    var accepted = form.dataset.answers.split("|").map(normalise);
+    setFeedback(form, accepted.indexOf(normalise(input.value)) !== -1, form.dataset.answerText);
+    lockForm(form);
+  });
+});
+
 showLesson(lessonFromHash(), false);

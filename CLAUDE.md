@@ -35,7 +35,7 @@ One page (`index.html`) built from the slides. JavaScript shows one lesson at a 
 
 - Each slide becomes one lesson section: heading, short text, key image or diagram.
 - Students move with Previous/Next buttons or a "Jump to lesson" menu; the URL hash (`#lesson-3`) links to a lesson.
-- Each content lesson ends with a short "Remember" box.
+- Each content lesson ends with a short "Remember" box, then one check-in question (multiple choice or short answer) answered inline. It shows right or wrong, then locks. Next is never blocked.
 - Previous/Next cards at the bottom show the neighbouring lesson titles.
 - Designed phone-first; audience is 2nd and 3rd year polytechnic students (Train Operation).
 
