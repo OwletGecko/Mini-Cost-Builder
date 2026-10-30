@@ -8,7 +8,7 @@
 ## Project Structure
 
 - `index.html`: the single page; one `<section class="lesson">` per slide.
-- `styles.css`: plain styling with light and dark theme variables.
+- `styles.css`: the "Handbook" design (EB Garamond + Nunito Sans, forest green and gold) with light and dark theme variables.
 - `script.js`: shows one lesson at a time, plus the theme toggle.
 - `images/`: compressed images taken from the slides.
 - `README.md`: project readme.
@@ -35,14 +35,16 @@ One page (`index.html`) built from the slides. JavaScript shows one lesson at a 
 
 - Each slide becomes one lesson section: heading, short text, key image or diagram.
 - Students move with Previous/Next buttons or a "Jump to lesson" menu; the URL hash (`#lesson-3`) links to a lesson.
-- Planned, not built yet: a short "Remember" box at the end of each lesson.
+- Each content lesson ends with a short "Remember" box.
+- Previous/Next cards at the bottom show the neighbouring lesson titles.
 - Designed phone-first; audience is 2nd and 3rd year polytechnic students (Train Operation).
 
 ### Phases
 
 **Phase 1: Course from the slides**
 - Done: built from the Module 0 deck (22 slides, one lesson each), with menu, buttons and light/dark toggle, in plain styling.
-- Next: design pass, "Remember" boxes, and the two video slides (not included yet).
+- Done: "Handbook" visual design applied. Fonts load from Google Fonts, with Georgia and system fonts as fallback.
+- Next: the two video slides (not included yet).
 - Keep it light for weak Wi-Fi: compressed images, no heavy libraries, system fonts.
 
 **Phase 2: Later (not planned yet)**

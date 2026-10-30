@@ -2,19 +2,34 @@
 
 var lessons = Array.prototype.slice.call(document.querySelectorAll(".lesson"));
 var select = document.getElementById("lesson-select");
-var position = document.getElementById("position");
-var prevButtons = [document.getElementById("prev-top"), document.getElementById("prev-bottom")];
-var nextButtons = [document.getElementById("next-top"), document.getElementById("next-bottom")];
+var prevButton = document.getElementById("prev-bottom");
+var nextButton = document.getElementById("next-bottom");
 var themeButton = document.getElementById("theme-toggle");
 var current = 0;
 
-// Fill the "Jump to lesson" menu from the lesson titles.
+// Add the "Lesson N of 22" label and gold rule above each lesson's heading,
+// and fill the "Contents" menu from the lesson titles.
 lessons.forEach(function (lesson, i) {
+  var eyebrow = document.createElement("p");
+  eyebrow.className = "eyebrow";
+  eyebrow.textContent = "Lesson " + (i + 1) + " of " + lessons.length;
+  var rule = document.createElement("div");
+  rule.className = "rule";
+  lesson.insertBefore(rule, lesson.firstChild);
+  lesson.insertBefore(eyebrow, rule);
+
   var option = document.createElement("option");
   option.value = i;
   option.textContent = i + 1 + ". " + lesson.dataset.title;
   select.appendChild(option);
 });
+
+function setPager(button, index) {
+  var title = button.querySelector(".pager-title");
+  var exists = index >= 0 && index < lessons.length;
+  button.disabled = !exists;
+  title.textContent = exists ? lessons[index].dataset.title : "";
+}
 
 function showLesson(index, updateHash) {
   if (index < 0 || index >= lessons.length) {
@@ -25,9 +40,8 @@ function showLesson(index, updateHash) {
     lesson.hidden = i !== index;
   });
   select.value = index;
-  position.textContent = "Lesson " + (index + 1) + " of " + lessons.length;
-  prevButtons.forEach(function (b) { b.disabled = index === 0; });
-  nextButtons.forEach(function (b) { b.disabled = index === lessons.length - 1; });
+  setPager(prevButton, index - 1);
+  setPager(nextButton, index + 1);
   if (updateHash) {
     history.replaceState(null, "", "#" + lessons[index].id);
   }
@@ -47,11 +61,11 @@ function lessonFromHash() {
 select.addEventListener("change", function () {
   showLesson(Number(select.value), true);
 });
-prevButtons.forEach(function (b) {
-  b.addEventListener("click", function () { showLesson(current - 1, true); });
+prevButton.addEventListener("click", function () {
+  showLesson(current - 1, true);
 });
-nextButtons.forEach(function (b) {
-  b.addEventListener("click", function () { showLesson(current + 1, true); });
+nextButton.addEventListener("click", function () {
+  showLesson(current + 1, true);
 });
 window.addEventListener("hashchange", function () {
   showLesson(lessonFromHash(), false);
