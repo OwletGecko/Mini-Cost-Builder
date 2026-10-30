@@ -427,3 +427,157 @@ th {
 .feedback b {
   color: var(--accent);
 }
+
+/* Signalling simulator (lesson 23). */
+
+.sim {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.sim-track {
+  position: relative;
+}
+
+.sim-blocks {
+  display: flex;
+  border: 2px solid var(--ink);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.sim-block {
+  flex: 1;
+  min-width: 0;
+  min-height: 9rem;
+  padding: 0.5rem 0.25rem 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  border-left: 2px solid var(--ink);
+  font-size: 0.8rem;
+  line-height: 1.2;
+}
+
+.sim-block:first-child {
+  border-left: none;
+}
+
+.sim-name {
+  color: var(--muted);
+}
+
+.sim-aspect {
+  font-weight: 700;
+}
+
+.sim-lamp {
+  width: 1.4rem;
+  height: 1.4rem;
+  border-radius: 50%;
+  border: 2px solid var(--ink);
+}
+
+.lamp-red {
+  background: #d03a2f;
+}
+
+.lamp-yellow {
+  background: #e3b023;
+}
+
+.lamp-green {
+  background: #2e9e5b;
+}
+
+.sim-train {
+  position: absolute;
+  bottom: 0.5rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  overflow: hidden;
+}
+
+.sim-train[hidden] {
+  display: none;
+}
+
+.sim-train-you {
+  background: var(--accent);
+  color: var(--on-accent);
+}
+
+.sim-train-lead {
+  background: var(--ink);
+  color: var(--bg);
+}
+
+.sim-direction {
+  margin: 0;
+  font-size: 0.9rem;
+  font-style: italic;
+  color: var(--muted);
+}
+
+.sim-status {
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+  gap: 0.75rem;
+}
+
+.sim-status dt {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.sim-status dd {
+  margin: 0;
+  font-weight: 700;
+}
+
+.sim-next {
+  grid-column: 1 / -1;
+}
+
+.sim-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.sim-controls button {
+  flex: 1 1 5rem;
+  padding: 0 1rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.sim-controls button[aria-pressed="true"] {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--on-accent);
+}
+
+.sim-controls button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.sim-message {
+  margin: 0;
+  min-height: 3rem;
+  line-height: 1.5;
+}

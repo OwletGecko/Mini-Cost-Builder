@@ -46,6 +46,8 @@ function showLesson(index, updateHash) {
     history.replaceState(null, "", "#" + lessons[index].id);
   }
   window.scrollTo(0, 0);
+  // Lets the simulator start and pause its animation.
+  window.dispatchEvent(new CustomEvent("lessonshown", { detail: lessons[index].id }));
 }
 
 function lessonFromHash() {

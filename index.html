@@ -603,6 +603,59 @@
   </form>
 </section>
 
+<section class="lesson" id="lesson-23" data-title="Signalling simulator">
+  <h2>Signalling simulator</h2>
+  <p>Block working keeps trains apart by letting only one train into a block at a time. Here you drive a train along a line of five blocks, behind Train 1, which stops and starts as it goes. A signal at the entry of each block tells you what to do.</p>
+  <p>Your goal is to reach the end of the line without passing a red signal and without running into Train 1.</p>
+  <div class="sim" data-sim>
+    <div class="sim-track" role="img" aria-label="A line of five blocks with a signal at the entry of each block. Your train is behind Train 1. The live status below describes the same scene in text.">
+      <div class="sim-blocks">
+        <div class="sim-block"><span class="sim-name">Block 1</span><span class="sim-lamp lamp-green"></span><span class="sim-aspect">Green</span></div>
+        <div class="sim-block"><span class="sim-name">Block 2</span><span class="sim-lamp lamp-green"></span><span class="sim-aspect">Green</span></div>
+        <div class="sim-block"><span class="sim-name">Block 3</span><span class="sim-lamp lamp-green"></span><span class="sim-aspect">Green</span></div>
+        <div class="sim-block"><span class="sim-name">Block 4</span><span class="sim-lamp lamp-green"></span><span class="sim-aspect">Green</span></div>
+        <div class="sim-block"><span class="sim-name">Block 5</span><span class="sim-lamp lamp-green"></span><span class="sim-aspect">Green</span></div>
+      </div>
+      <div class="sim-train sim-train-lead" data-lead>T1</div>
+      <div class="sim-train sim-train-you" data-you>YOU</div>
+    </div>
+    <p class="sim-direction">Both trains travel to the right. The signal sits at the left edge of each block.</p>
+    <dl class="sim-status">
+      <div><dt>Your speed</dt><dd data-speed>Stopped</dd></div>
+      <div><dt>Time</dt><dd data-time>0 s</dd></div>
+      <div><dt>Red signals passed</dt><dd data-red-count>0</dd></div>
+      <div class="sim-next"><dt>Next signal</dt><dd data-next></dd></div>
+    </dl>
+    <div class="sim-controls">
+      <button type="button" data-set="fast" aria-pressed="false">Go</button>
+      <button type="button" data-set="slow" aria-pressed="false">Slow</button>
+      <button type="button" data-set="brake" aria-pressed="true">Brake</button>
+      <button type="button" data-restart>Restart</button>
+    </div>
+    <p class="sim-message" role="status" data-message></p>
+  </div>
+  <p class="source">This is a simplified fixed-block model with coloured signals, to show the idea of keeping trains apart. Real systems such as CBTC (Chapter 4) apply the same principle with continuous communication between train and control.</p>
+  <aside class="remember">
+    <h3>Remember</h3>
+    <ul>
+      <li>Red: stop before the signal. The block ahead is occupied.</li>
+      <li>Yellow: caution. The next signal may be red, so prepare to stop.</li>
+      <li>Green: proceed. The section ahead is clear.</li>
+      <li>Braking takes distance, so react at yellow, not at red.</li>
+    </ul>
+  </aside>
+  <form class="checkin" data-type="choice" data-correct="1" data-explain="Red means the block ahead is occupied, so the train must stop before the signal.">
+    <fieldset>
+      <legend><span class="checkin-label">Check-in</span> What should a driver do when the next signal shows red?</legend>
+      <label class="option"><input type="radio" name="q23" value="0"> <span>Slow down and pass with care</span></label>
+      <label class="option"><input type="radio" name="q23" value="1"> <span>Stop before the signal</span></label>
+      <label class="option"><input type="radio" name="q23" value="2"> <span>Speed up to clear the block quickly</span></label>
+    </fieldset>
+    <button type="submit">Check answer</button>
+    <p class="feedback" role="status"></p>
+  </form>
+</section>
+
 </main>
 
 <nav class="pager" aria-label="Previous and next lesson">
@@ -610,6 +663,7 @@
   <button id="next-bottom" class="pager-button next" type="button"><span class="pager-label">Next</span><span class="pager-title"></span></button>
 </nav>
 
+<script src="simulator.js"></script>
 <script src="script.js"></script>
 </body>
 </html>
