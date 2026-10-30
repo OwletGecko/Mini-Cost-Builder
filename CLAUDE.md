@@ -7,12 +7,14 @@
 
 ## Project Structure
 
-The repository is nearly empty for now.
-
+- `index.html`: the single page; one `<section class="lesson">` per slide.
+- `styles.css`: plain styling with light and dark theme variables.
+- `script.js`: shows one lesson at a time, plus the theme toggle.
+- `images/`: compressed images taken from the slides.
 - `README.md`: project readme.
 - `CLAUDE.md`: this file.
 
-Add new files here as the project grows and keep this list up to date.
+The slide deck itself is not stored in the repository. Keep this list up to date.
 
 ## Key Requirements
 
@@ -29,22 +31,19 @@ Add new files here as the project grows and keep this list up to date.
 
 ### Site structure
 
-One long scrolling page (`index.html`), built from 3-5 slides.
+One page (`index.html`) built from the slides. JavaScript shows one lesson at a time.
 
 - Each slide becomes one lesson section: heading, short text, key image or diagram.
-- Each lesson ends with a short "Remember" box (steps or checklist), since the goal is recall.
-- A sticky mini menu or progress bar lets students jump between lessons.
-- Students scroll down the page, or tap a menu item to jump to a lesson.
+- Students move with Previous/Next buttons or a "Jump to lesson" menu; the URL hash (`#lesson-3`) links to a lesson.
+- Planned, not built yet: a short "Remember" box at the end of each lesson.
 - Designed phone-first; audience is 2nd and 3rd year polytechnic students (Train Operation).
 
 ### Phases
 
 **Phase 1: Course from the slides**
-- Get the slides (PDF or PowerPoint) from the user. Do not start without them.
-- Outline each slide's heading, key points and images; show the outline before building.
-- Build the scrolling page, lesson sections, "Remember" boxes, menu and light/dark toggle.
+- Done: built from the Module 0 deck (22 slides, one lesson each), with menu, buttons and light/dark toggle, in plain styling.
+- Next: design pass, "Remember" boxes, and the two video slides (not included yet).
 - Keep it light for weak Wi-Fi: compressed images, no heavy libraries, system fonts.
-- Review with the user and fix what they flag.
 
 **Phase 2: Later (not planned yet)**
 - Possible additions, such as a self-check quiz. Decide with the user first.

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Railway Systems: Module 0 Introduction</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <h1>Railway Systems <span class="sub">Module 0 · Introduction</span></h1>
+  <button id="theme-toggle" type="button" aria-pressed="false">Dark theme</button>
+</header>
+
+<nav class="lesson-nav" aria-label="Lessons">
+  <label for="lesson-select">Jump to lesson</label>
+  <select id="lesson-select"></select>
+  <div class="nav-buttons">
+    <button id="prev-top" type="button">Previous</button>
+    <button id="next-top" type="button">Next</button>
+  </div>
+</nav>
+
+<main id="lessons">
+
+<section class="lesson" id="lesson-1" data-title="Railway Systems">
+  <h2>Railway Systems</h2>
+  <p>This is Lesson 1 of E322, Rail Operational Management.</p>
+  <p>The course is based on the <i>Railway Systems Handbook</i>, edited by Pang Hock Lye and Cheong Mun Kit and published by the Institution of Engineers, Singapore (IES), with support from the Land Transport Authority (LTA), SMRT and SBS Transit.</p>
+  <figure><img src="images/s01.jpg" alt="Marina Bay MRT station" loading="lazy"></figure>
+</section>
+
+<section class="lesson" id="lesson-2" data-title="Welcome to Railway Systems">
+  <h2>Welcome to Railway Systems</h2>
+  <p>This is a cross-disciplinary introduction for polytechnic engineering students.</p>
+  <h3>What this course is</h3>
+  <p>The course introduces the engineering systems behind Singapore's Mass Rapid Transit (MRT) network, the same system many of you ride to school. You will see how track, trains, power, signalling, communications, station services, assurance and asset management work together as one connected system.</p>
+  <h3>Who it is for</h3>
+  <p>The course is aimed at Year 1 and 2 polytechnic students in Electrical and Electronic, Mechatronics, Mechanical and Civil Engineering. Basic physics and electrical knowledge is assumed. You do not need any rail-industry experience, because every acronym is defined the first time it appears.</p>
+  <figure><img src="images/s02.jpg" alt="Platform at Buona Vista MRT station" loading="lazy"><figcaption>Image: Wikimedia Commons, CC BY-SA. Buona Vista MRT station platform.</figcaption></figure>
+</section>
+
+<section class="lesson" id="lesson-3" data-title="Why railway engineering matters">
+  <h2>Why railway engineering matters</h2>
+  <p>Rail is the backbone of Singapore's public transport, and metros are among the largest moving services in the world. Three numbers show the scale:</p>
+  <ul>
+    <li><b>229 km:</b> the size of the Singapore rail network in 2018, up from 182 km in 2013. That is about a 50% increase in capacity.</li>
+    <li><b>About 360 km:</b> the target network by around 2030, which means almost one new MRT line or extension every year.</li>
+    <li><b>168 million:</b> daily metro trips worldwide in 2017, across metros in 178 cities.</li>
+  </ul>
+  <figure><img src="images/s03.jpg" alt="Singapore MRT viaduct" loading="lazy"><figcaption>Image: Wikimedia Commons, CC BY-SA. Singapore MRT viaduct.</figcaption></figure>
+  <p class="source">Source: IES Railway Systems Handbook, Foreword and LTA Message.</p>
+</section>
+
+<section class="lesson" id="lesson-4" data-title="LTMP 2040">
+  <h2>LTMP 2040: a 20-minute town and a 45-minute city</h2>
+  <p>The Land Transport Master Plan 2040 was launched by the Land Transport Authority (LTA) on 25 May 2019. It sets three headline commitments for 2040:</p>
+  <ul>
+    <li>A <b>20-minute town</b>: door-to-door travel to the nearest neighbourhood centre in 20 minutes, by walking, cycling or riding public transport.</li>
+    <li>A <b>45-minute city</b>: door-to-door travel to the city centre in 45 minutes during peak periods, by the same modes.</li>
+    <li><b>9 in 10</b> peak-period journeys made by walking, cycling or public transport by 2040.</li>
+  </ul>
+  <p>An excellent rail system is the key strategy for reaching these targets.</p>
+  <figure><img src="images/s04.png" alt="Three cards: 20 minutes to the neighbourhood centre, 45 minutes to the city centre, and 9 in 10 peak journeys by walk, cycle or ride" loading="lazy"><figcaption>Diagram: based on the IES Railway Systems Handbook, Message by LTA.</figcaption></figure>
+</section>
+
+<section class="lesson" id="lesson-5" data-title="Singapore's MRT lines">
+  <h2>Singapore's MRT lines</h2>
+  <p>The network you will study throughout this course has six heavy-rail lines run by two operators.</p>
+  <table>
+    <thead><tr><th>Code</th><th>Line</th><th>Operator</th></tr></thead>
+    <tbody>
+      <tr><td>NSL</td><td>North-South Line</td><td>SMRT</td></tr>
+      <tr><td>EWL</td><td>East-West Line</td><td>SMRT</td></tr>
+      <tr><td>CCL</td><td>Circle Line</td><td>SMRT</td></tr>
+      <tr><td>NEL</td><td>North East Line</td><td>SBS Transit</td></tr>
+      <tr><td>DTL</td><td>Downtown Line</td><td>SBS Transit</td></tr>
+      <tr><td>TEL</td><td>Thomson-East Coast Line</td><td>SMRT</td></tr>
+    </tbody>
+  </table>
+  <p>The MRT lines are joined by LRT feeder lines in Bukit Panjang, Sengkang and Punggol. The Cross Island Line (CRL) will open in phases from about 2030, taking the network towards roughly 360 km.</p>
+  <figure><img src="images/s05.png" alt="Six MRT line codes with their names and operators" loading="lazy"><figcaption>Diagram: based on the IES Railway Systems Handbook, Chapter 1.</figcaption></figure>
+</section>
+
+<section class="lesson" id="lesson-6" data-title="The railway as a system of systems">
+  <h2>The railway as a system of systems</h2>
+  <p>An MRT service depends on eight engineering domains working as one integrated whole. They follow the structure of the handbook: each domain is one handbook chapter and one module of this course.</p>
+  <ol>
+    <li><b>Permanent Way:</b> rails, sleepers and ballast.</li>
+    <li><b>Rolling Stock:</b> trains, bogies and traction.</li>
+    <li><b>Power Supply:</b> the high-voltage grid and traction supply.</li>
+    <li><b>Signalling and PSD:</b> communications-based train control (CBTC), interlocking and platform screen doors.</li>
+    <li><b>Communications and Control:</b> the operations control centre (OCC), radio and networks.</li>
+    <li><b>M&amp;E Services:</b> HVAC, fire protection, lifts and lighting.</li>
+    <li><b>Systems Assurance:</b> RAMS and integration.</li>
+    <li><b>Asset Management:</b> life cycle, MKBF and renewals.</li>
+  </ol>
+  <figure><img src="images/s06.png" alt="Eight cards numbered 01 to 08, one for each engineering domain" loading="lazy"><figcaption>Diagram: based on the IES Railway Systems Handbook (structure).</figcaption></figure>
+</section>
+
+<section class="lesson" id="lesson-7" data-title="Chapter 1: Permanent Way">
+  <h2>Chapter 1: Permanent Way, the track system</h2>
+  <h3>What it covers</h3>
+  <p>The permanent way is the track itself: rails, sleepers (concrete or wooden), ballast and slab track. It also includes the fastenings that hold the rails, the turnouts that let trains change tracks, and the trackside third rail used in Singapore.</p>
+  <h3>Why it matters</h3>
+  <p>Track geometry and condition shape ride quality, safety and reliability across the whole MRT.</p>
+  <figure><img src="images/s02.jpg" alt="Track at an MRT platform" loading="lazy"><figcaption>Image: Wikimedia Commons, CC BY-SA. Track at an MRT platform.</figcaption></figure>
+</section>
+
+<section class="lesson" id="lesson-8" data-title="Chapter 2: Rolling Stock">
+  <h2>Chapter 2: Rolling Stock, the trains themselves</h2>
+  <ul>
+    <li><b>Car body and bogies:</b> the structural shell and the running gear that carry passengers along the track.</li>
+    <li><b>Traction and braking:</b> traction motors, converters, and combined service and emergency brakes.</li>
+    <li><b>Auxiliaries and communications:</b> on-board 3-phase 400 V AC supply, HVAC (heating, ventilation and air conditioning), doors, and the links between train and control centre.</li>
+  </ul>
+  <figure><img src="images/s08.jpg" alt="A refurbished Kawasaki C151 train" loading="lazy"><figcaption>Image: CTB990 / Wikimedia Commons, CC BY-SA 4.0. Refurbished Kawasaki C151.</figcaption></figure>
+</section>
+
+<section class="lesson" id="lesson-9" data-title="Chapter 3: Power Supply Systems">
+  <h2>Chapter 3: Power Supply Systems, high-voltage distribution and traction</h2>
+  <h3>From grid to train</h3>
+  <p>Power flows from the national grid to bulk substations, then to traction substations, then to the third rail (or overhead line), and finally into the train.</p>
+  <h3>Station auxiliaries</h3>
+  <p>Stations draw power from a separate low-voltage distribution system, which supplies lighting, services and small power.</p>
+  <figure><img src="images/s09.jpg" alt="A third-rail conductor (illustrative)" loading="lazy"><figcaption>Image: Wikimedia Commons, CC BY-SA. Third-rail conductor (illustrative).</figcaption></figure>
+</section>
+
+<section class="lesson" id="lesson-10" data-title="Chapter 4: Signalling and Platform Screen Doors">
+  <h2>Chapter 4: Signalling and Platform Screen Doors, safe train control</h2>
+  <h3>Signalling</h3>
+  <p>Signalling covers train detection, interlocking and route setting. Communications-based train control (CBTC) is used on the North-South, East-West and Circle lines. It is built in layers: automatic train protection (ATP), automatic train operation (ATO) and automatic train supervision (ATS).</p>
+  <h3>Platform screen doors</h3>
+  <p>Platform screen doors (PSDs) separate the platform from the track and work in step with the train doors. They improve safety, the station climate and dwell time, which is how long a train waits at a platform.</p>
+  <figure><img src="images/s10.jpg" alt="Platform screen doors at Yio Chu Kang station" loading="lazy"><figcaption>Image: ProjectManhattan / Wikimedia Commons, CC BY-SA 3.0. PSDs at Yio Chu Kang.</figcaption></figure>
+</section>
+
+<section class="lesson" id="lesson-11" data-title="Chapter 5: Communications and Control Systems">
+  <h2>Chapter 5: Communications and Control Systems, the nerve centre and networks</h2>
+  <h3>Operations Control Centre</h3>
+  <p>The Operations Control Centre (OCC) is the central nerve centre. It supervises train movements, power and stations.</p>
+  <h3>Radio, CCTV and networks</h3>
+  <p>This chapter also covers train radio, station telephony and surveillance, together with the backbone networks that connect every subsystem.</p>
+  <figure><img src="images/s01.jpg" alt="Marina Bay MRT station" loading="lazy"><figcaption>Image: ZKang123 / Wikimedia Commons, CC BY-SA 4.0. Marina Bay MRT station.</figcaption></figure>
+</section>
+
+<section class="lesson" id="lesson-12" data-title="Chapter 6: Mechanical and Electrical Services">
+  <h2>Chapter 6: Mechanical and Electrical Services, stations and tunnels</h2>
+  <h3>Climate and life safety</h3>
+  <p>These systems include tunnel ventilation, station air-conditioning, fire protection and other life-safety systems.</p>
+  <h3>Passenger equipment</h3>
+  <p>They also include escalators, lifts, lighting, drainage and small power across stations and depots.</p>
+  <figure><img src="images/s12.jpg" alt="Escalators at Bras Basah MRT station" loading="lazy"><figcaption>Image: Katmorro / Wikimedia Commons, CC BY-SA 3.0. Escalators at Bras Basah MRT.</figcaption></figure>
+</section>
+
+<section class="lesson" id="lesson-13" data-title="Chapter 7: Systems Assurance">
+  <h2>Chapter 7: Systems Assurance, RAMS in practice</h2>
+  <p>Systems assurance applies systems engineering to Reliability, Availability, Maintainability and Safety (RAMS). It manages risk across complex, multi-disciplinary systems and provides the evidence base for safe operation.</p>
+  <p>Each letter of RAMS asks a question and has a measure:</p>
+  <ul>
+    <li><b>Reliability:</b> will it work when we need it? Measured by Mean Kilometres Between Failure (MKBF).</li>
+    <li><b>Availability:</b> how often is it ready for service? Measured as uptime, as a percentage of scheduled service hours.</li>
+    <li><b>Maintainability:</b> how fast can it be restored? Measured by Mean Time To Repair (MTTR).</li>
+    <li><b>Safety:</b> how well does it protect people? Measured by whether hazards are eliminated or controlled to ALARP (as low as reasonably practicable).</li>
+  </ul>
+  <p>RAMS targets flow from design, through commissioning, to in-service operation.</p>
+  <figure><img src="images/s13.png" alt="RAMS split into Reliability, Availability, Maintainability and Safety, each with its measure" loading="lazy"><figcaption>Diagram: based on the IES Railway Systems Handbook, Chapter 7.</figcaption></figure>
+</section>
+
+<section class="lesson" id="lesson-14" data-title="Chapter 8: Asset Management">
+  <h2>Chapter 8: Asset Management, across the whole life cycle</h2>
+  <h3>Asset register and maintenance</h3>
+  <p>Good asset management starts with knowing every asset: what it is, where it is and what condition it is in. Preventive, predictive and corrective work is then applied to keep assets in service.</p>
+  <h3>Renewals and performance</h3>
+  <p>Ageing assets are planned for replacement, and asset health is linked to key performance indicators such as MKBF and availability.</p>
+  <h3>The life cycle</h3>
+  <p>Assets move through five stages: plan (identify needs and set requirements), acquire (design, build and commission), operate (run the daily service), maintain (preventive and predictive work) and renew (replace ageing assets). Renewal feeds back into planning, so it is a continuous cycle.</p>
+  <figure><img src="images/s14.png" alt="Five stages in a loop: Plan, Acquire, Operate, Maintain, Renew" loading="lazy"><figcaption>Diagram: based on the IES Railway Systems Handbook, Chapter 8.</figcaption></figure>
+</section>
+
+<section class="lesson" id="lesson-15" data-title="Roles and career pathways">
+  <h2>Roles and career pathways</h2>
+  <p>Rail engineering needs many disciplines, and every Singapore MRT line is delivered by engineers working across all of them together. The Skills Framework for Public Transport (May 2018) maps the career routes. Five disciplines stand behind the MRT:</p>
+  <ul>
+    <li><b>Civil and structural:</b> tracks, tunnels, viaducts and stations.</li>
+    <li><b>Mechanical:</b> rolling stock, HVAC, doors and lifts.</li>
+    <li><b>Electrical:</b> high-voltage power, traction and station auxiliary supply.</li>
+    <li><b>Signalling and control:</b> CBTC, ATP/ATO/ATS, PSDs and interlocking.</li>
+    <li><b>Systems and assurance:</b> RAMS, integration, life cycle and safety.</li>
+  </ul>
+  <figure><img src="images/s15.png" alt="The MRT system branching into five engineering disciplines" loading="lazy"><figcaption>Diagram: based on the IES Railway Systems Handbook, career and Skills Framework.</figcaption></figure>
+</section>
+
+<section class="lesson" id="lesson-16" data-title="Reliability: the MKBF story">
+  <h2>Reliability: the MKBF story</h2>
+  <p>Mean Kilometres Between Failure (MKBF) tells you how far, on average, the network runs before a service delay. Singapore's figure has changed a great deal:</p>
+  <ul>
+    <li><b>Before 2018:</b> below 200,000 km, after three consecutive years of frequent disruptions.</li>
+    <li><b>2018:</b> 690,000 km. Renewals, CBTC upgrades and maintenance reforms paid off.</li>
+    <li><b>Target:</b> 1,000,000 km, as Singapore aims for the best metros in the world.</li>
+  </ul>
+  <figure><img src="images/s16.png" alt="Bars showing MKBF below 200,000 before 2018, 690,000 in 2018 and a target of 1,000,000" loading="lazy"><figcaption>Diagram: based on the IES Railway Systems Handbook, Message by LTA.</figcaption></figure>
+</section>
+
+<section class="lesson" id="lesson-17" data-title="How this course works">
+  <h2>How this course works</h2>
+  <p>Every module follows the same rhythm, so the course is predictable, built up step by step and easy to revise. There are five parts:</p>
+  <ol>
+    <li><b>Modules:</b> one module for each handbook chapter.</li>
+    <li><b>Slide decks:</b> about 18 to 22 slides each.</li>
+    <li><b>Handouts:</b> a 3-page PDF for each chapter.</li>
+    <li><b>Quick-checks:</b> short questions to confirm you have grasped the chapter.</li>
+    <li><b>Assessment:</b> an end-of-course assessment covering all eight chapters.</li>
+  </ol>
+  <figure><img src="images/s17.png" alt="Five numbered steps: Modules, Slide decks, Handouts, Quick-checks, Assessment" loading="lazy"><figcaption>Diagram: course pack structure (this Module 0 plus 8 chapter modules).</figcaption></figure>
+</section>
+
+<section class="lesson" id="lesson-18" data-title="How to read the handbook">
+  <h2>How to read the handbook</h2>
+  <p>The same structure repeats in every chapter, so you can use it to find things quickly.</p>
+  <h3>Inside each chapter</h3>
+  <ul>
+    <li>Introduction: what the system does and why it matters.</li>
+    <li>System overview: the main sub-systems and how they fit together.</li>
+    <li>Standards: the design and engineering standards followed.</li>
+    <li>Components: a detailed description of each major part.</li>
+    <li>Operation and maintenance considerations.</li>
+  </ul>
+  <h3>At the end of the book</h3>
+  <ul>
+    <li>References: the standards, papers and books cited.</li>
+    <li>Appendices: standards relevant to each subsystem.</li>
+    <li>Figures and tables: labelled diagrams to study alongside the text.</li>
+    <li>Glossary of acronyms: handy when an unfamiliar term appears.</li>
+  </ul>
+</section>
+
+<section class="lesson" id="lesson-19" data-title="Course roadmap">
+  <h2>Course roadmap</h2>
+  <p>The course runs for 26 teaching weeks, from this introduction through all eight chapters to the final assessment. That is about 3 weeks per chapter, with 2 weeks for assessment and review.</p>
+  <p>The order is: Module 0 (Intro), then Chapter 1 Permanent Way, Chapter 2 Rolling Stock, Chapter 3 Power Supply, Chapter 4 Signalling and PSD, Chapter 5 Comms and Control, Chapter 6 M&amp;E Services, Chapter 7 Systems Assurance, Chapter 8 Asset Management, and finally the assessment.</p>
+  <p>Each chapter is one slide deck (18 to 22 slides), one three-page handout and a set of quick-check questions.</p>
+  <figure><img src="images/s19.png" alt="Timeline from M0 through chapters C1 to C8 to the final assessment" loading="lazy"><figcaption>Diagram: 26-week course roadmap (Module 0, Chapters 1 to 8, final assessment).</figcaption></figure>
+</section>
+
+<section class="lesson" id="lesson-20" data-title="Welcome aboard">
+  <h2>Welcome aboard</h2>
+  <p>That is the end of Module 0. Do you have any questions before we move into Chapter 1: Permanent Way?</p>
+  <p class="source">Based on the <i>Railway Systems Handbook</i>, Institution of Engineers, Singapore (IES), edited by Pang Hock Lye and Cheong Mun Kit. Supported by LTA, SMRT and SBS Transit.</p>
+  <figure><img src="images/s20.jpg" alt="Photograph from the closing slide" loading="lazy"></figure>
+</section>
+
+<section class="lesson" id="lesson-21" data-title="Modern Metro in Motion">
+  <h2>Modern Metro in Motion</h2>
+  <p>This part of the course uses a short illustrative clip of a metro train arriving at a station. It sets the scene for what you will study over the next 26 weeks.</p>
+  <p class="source">The clip is AI-generated and illustrative only. It is not technical reference footage. The video is not included on this site yet.</p>
+</section>
+
+<section class="lesson" id="lesson-22" data-title="Rail Networks in a Modern City">
+  <h2>Rail Networks in a Modern City</h2>
+  <p>This part of the course uses an aerial clip of an urban rail corridor weaving through a tropical metropolitan skyline.</p>
+  <p class="source">The clip is AI-generated and illustrative only. It is not technical reference footage. The video is not included on this site yet.</p>
+</section>
+
+</main>
+
+<nav class="lesson-nav bottom" aria-label="Lesson buttons">
+  <button id="prev-bottom" type="button">Previous</button>
+  <span id="position" aria-live="polite"></span>
+  <button id="next-bottom" type="button">Next</button>
+</nav>
+
+<script src="script.js"></script>
+</body>
+</html>
