@@ -9,8 +9,9 @@
 
 - `index.html`: the single page; one `<section class="lesson">` per slide.
 - `styles.css`: the "Handbook" design (EB Garamond + Nunito Sans, forest green and gold) with light and dark theme variables.
-- `script.js`: shows one lesson at a time, check-in questions and the theme toggle.
-- `simulator.js`: the signalling simulator in lesson 23 (block working with red, yellow and green signals).
+- `script.js`: the three tabs, one lesson at a time, check-in questions and the theme toggle.
+- `quiz.js`: the 8-question course quiz with score.
+- `simulator.js`: the signalling simulator (block working with red, yellow and green signals).
 - `images/`: compressed images taken from the slides.
 - `README.md`: project readme.
 - `CLAUDE.md`: this file.
@@ -32,7 +33,7 @@ The slide deck itself is not stored in the repository. Keep this list up to date
 
 ### Site structure
 
-One page (`index.html`) built from the slides. JavaScript shows one lesson at a time.
+One page (`index.html`) with three tabs: **Lesson** (22 lessons built from the slides, shown one at a time), **Quiz** (8 questions with a score) and **Simulator** (signalling simulator). JavaScript switches tabs and lessons; no new pages.
 
 - Each slide becomes one lesson section: heading, short text, key image or diagram.
 - Students move with Previous/Next buttons or a "Jump to lesson" menu; the URL hash (`#lesson-3`) links to a lesson.
@@ -45,7 +46,7 @@ One page (`index.html`) built from the slides. JavaScript shows one lesson at a 
 **Phase 1: Course from the slides**
 - Done: built from the Module 0 deck (22 slides, one lesson each), with menu, buttons and light/dark toggle, in plain styling.
 - Done: "Handbook" visual design applied. Fonts load from Google Fonts, with Georgia and system fonts as fallback.
-- Done: lesson 23 signalling simulator.
+- Done: Lesson, Quiz and Simulator tabs.
 - Next: the two video slides (not included yet).
 - Keep it light for weak Wi-Fi: compressed images, no heavy libraries, system fonts.
 

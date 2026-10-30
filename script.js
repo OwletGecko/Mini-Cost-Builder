@@ -1,11 +1,13 @@
-// Shows one lesson at a time and handles the light/dark theme toggle.
+// Tabs (Lesson, Quiz, Simulator), one lesson at a time, check-in questions and the theme toggle.
 
-var lessons = Array.prototype.slice.call(document.querySelectorAll(".lesson"));
+var lessons = Array.prototype.slice.call(document.querySelectorAll("#lessons > .lesson"));
 var select = document.getElementById("lesson-select");
 var prevButton = document.getElementById("prev-bottom");
 var nextButton = document.getElementById("next-bottom");
 var themeButton = document.getElementById("theme-toggle");
+var tabButtons = Array.prototype.slice.call(document.querySelectorAll("[data-tab]"));
 var current = 0;
+var currentTab = "lessons";
 
 // Add the "Lesson N of 22" label and gold rule above each lesson's heading,
 // and fill the "Contents" menu from the lesson titles.
@@ -31,6 +33,10 @@ function setPager(button, index) {
   title.textContent = exists ? lessons[index].dataset.title : "";
 }
 
+function hashFor(tab) {
+  return tab === "lessons" ? "#" + lessons[current].id : "#" + tab;
+}
+
 function showLesson(index, updateHash) {
   if (index < 0 || index >= lessons.length) {
     return;
@@ -43,22 +49,71 @@ function showLesson(index, updateHash) {
   setPager(prevButton, index - 1);
   setPager(nextButton, index + 1);
   if (updateHash) {
-    history.replaceState(null, "", "#" + lessons[index].id);
+    history.replaceState(null, "", hashFor("lessons"));
   }
   window.scrollTo(0, 0);
-  // Lets the simulator start and pause its animation.
-  window.dispatchEvent(new CustomEvent("lessonshown", { detail: lessons[index].id }));
 }
 
-function lessonFromHash() {
-  var id = location.hash.slice(1);
+function showTab(name, updateHash) {
+  currentTab = name;
+  tabButtons.forEach(function (button) {
+    var selected = button.dataset.tab === name;
+    button.setAttribute("aria-selected", String(selected));
+    button.tabIndex = selected ? 0 : -1;
+    document.getElementById(button.getAttribute("aria-controls")).hidden = !selected;
+  });
+  if (updateHash) {
+    history.replaceState(null, "", hashFor(name));
+    window.scrollTo(0, 0);
+  }
+  // Lets the simulator start and pause its animation.
+  window.dispatchEvent(new CustomEvent("tabshown", { detail: name }));
+}
+
+function lessonFromId(id) {
   for (var i = 0; i < lessons.length; i++) {
     if (lessons[i].id === id) {
       return i;
     }
   }
-  return 0;
+  return -1;
 }
+
+// "#quiz" and "#simulator" open those tabs; "#lesson-3" opens that lesson.
+function showFromHash() {
+  var id = location.hash.slice(1);
+  if (id === "quiz" || id === "simulator") {
+    showTab(id, false);
+    return;
+  }
+  var index = lessonFromId(id);
+  showLesson(index === -1 ? 0 : index, false);
+  showTab("lessons", false);
+}
+
+tabButtons.forEach(function (button, i) {
+  button.addEventListener("click", function () {
+    showTab(button.dataset.tab, true);
+  });
+  // Arrow keys, Home and End move between tabs.
+  button.addEventListener("keydown", function (event) {
+    var target = null;
+    if (event.key === "ArrowRight") {
+      target = tabButtons[(i + 1) % tabButtons.length];
+    } else if (event.key === "ArrowLeft") {
+      target = tabButtons[(i + tabButtons.length - 1) % tabButtons.length];
+    } else if (event.key === "Home") {
+      target = tabButtons[0];
+    } else if (event.key === "End") {
+      target = tabButtons[tabButtons.length - 1];
+    }
+    if (target) {
+      event.preventDefault();
+      target.focus();
+      showTab(target.dataset.tab, true);
+    }
+  });
+});
 
 select.addEventListener("change", function () {
   showLesson(Number(select.value), true);
@@ -69,33 +124,7 @@ prevButton.addEventListener("click", function () {
 nextButton.addEventListener("click", function () {
   showLesson(current + 1, true);
 });
-window.addEventListener("hashchange", function () {
-  showLesson(lessonFromHash(), false);
-});
-
-// Theme: light by default; the choice is remembered if the browser allows it.
-function setTheme(theme) {
-  document.documentElement.setAttribute("data-theme", theme);
-  themeButton.textContent = theme === "dark" ? "Light theme" : "Dark theme";
-  themeButton.setAttribute("aria-pressed", theme === "dark");
-  try {
-    localStorage.setItem("theme", theme);
-  } catch (e) {
-    // Storage can be blocked (for example in private windows); the toggle still works.
-  }
-}
-
-var savedTheme = "light";
-try {
-  savedTheme = localStorage.getItem("theme") === "dark" ? "dark" : "light";
-} catch (e) {
-  savedTheme = "light";
-}
-setTheme(savedTheme);
-
-themeButton.addEventListener("click", function () {
-  setTheme(document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark");
-});
+window.addEventListener("hashchange", showFromHash);
 
 // Check-in questions: show right or wrong after the first answer, then lock the question.
 // Moving to the next lesson is never blocked.
@@ -161,4 +190,28 @@ Array.prototype.forEach.call(document.querySelectorAll(".checkin"), function (fo
   });
 });
 
-showLesson(lessonFromHash(), false);
+// Theme: light by default; the choice is remembered if the browser allows it.
+function setTheme(theme) {
+  document.documentElement.setAttribute("data-theme", theme);
+  themeButton.textContent = theme === "dark" ? "Light theme" : "Dark theme";
+  themeButton.setAttribute("aria-pressed", theme === "dark");
+  try {
+    localStorage.setItem("theme", theme);
+  } catch (e) {
+    // Storage can be blocked (for example in private windows); the toggle still works.
+  }
+}
+
+var savedTheme = "light";
+try {
+  savedTheme = localStorage.getItem("theme") === "dark" ? "dark" : "light";
+} catch (e) {
+  savedTheme = "light";
+}
+setTheme(savedTheme);
+
+themeButton.addEventListener("click", function () {
+  setTheme(document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark");
+});
+
+showFromHash();

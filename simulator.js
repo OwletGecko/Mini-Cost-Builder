@@ -239,9 +239,9 @@
 
   restartButton.addEventListener("click", reset);
 
-  // script.js tells us which lesson is showing; the animation only runs while this one is.
-  window.addEventListener("lessonshown", function (event) {
-    shown = event.detail === root.closest(".lesson").id;
+  // script.js tells us which tab is showing; the animation only runs on the Simulator tab.
+  window.addEventListener("tabshown", function (event) {
+    shown = event.detail === "simulator";
     if (shown) {
       resume();
     }

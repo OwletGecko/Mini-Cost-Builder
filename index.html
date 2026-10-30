@@ -16,6 +16,13 @@
   <button id="theme-toggle" type="button" aria-pressed="false">Dark theme</button>
 </header>
 
+<div class="tabs" role="tablist" aria-label="Course sections">
+  <button type="button" role="tab" class="tab" id="tab-lessons" aria-controls="panel-lessons" aria-selected="true" data-tab="lessons">Lesson</button>
+  <button type="button" role="tab" class="tab" id="tab-quiz" aria-controls="panel-quiz" aria-selected="false" tabindex="-1" data-tab="quiz">Quiz</button>
+  <button type="button" role="tab" class="tab" id="tab-simulator" aria-controls="panel-simulator" aria-selected="false" tabindex="-1" data-tab="simulator">Simulator</button>
+</div>
+
+<div id="panel-lessons" class="panel" role="tabpanel" aria-labelledby="tab-lessons">
 <nav class="lesson-nav" aria-label="Contents">
   <label for="lesson-select">Contents</label>
   <select id="lesson-select"></select>
@@ -603,7 +610,109 @@
   </form>
 </section>
 
-<section class="lesson" id="lesson-23" data-title="Signalling simulator">
+
+</main>
+
+<nav class="pager" aria-label="Previous and next lesson">
+  <button id="prev-bottom" class="pager-button prev" type="button"><span class="pager-label">Previous</span><span class="pager-title"></span></button>
+  <button id="next-bottom" class="pager-button next" type="button"><span class="pager-label">Next</span><span class="pager-title"></span></button>
+</nav>
+</div>
+
+<div id="panel-quiz" class="panel" role="tabpanel" aria-labelledby="tab-quiz" hidden>
+<section class="lesson panel-body" data-quiz>
+  <p class="eyebrow">Test yourself</p>
+  <div class="rule"></div>
+  <h2>Course quiz</h2>
+  <p>Eight questions on the whole course. Each answer is marked as soon as you choose it. Your score appears once all eight are answered.</p>
+  <p class="quiz-progress" data-progress>Answered 0 of 8</p>
+    <div class="quiz-q" data-correct="1" data-explain="The network was 229 km in 2018, up from 182 km in 2013.">
+      <p class="quiz-prompt" id="quiz-q1"><span class="checkin-label">Question 1 of 8</span> How long was the Singapore rail network in 2018?</p>
+      <div class="quiz-options" role="group" aria-labelledby="quiz-q1">
+        <button type="button" class="option"><span class="option-text">182 km</span></button>
+        <button type="button" class="option"><span class="option-text">229 km</span></button>
+        <button type="button" class="option"><span class="option-text">360 km</span></button>
+      </div>
+      <p class="feedback" role="status"></p>
+    </div>
+    <div class="quiz-q" data-correct="2" data-explain="The target is 9 in 10 peak-period journeys by walking, cycling or public transport by 2040.">
+      <p class="quiz-prompt" id="quiz-q2"><span class="checkin-label">Question 2 of 8</span> What does LTMP 2040 aim for in peak-period journeys?</p>
+      <div class="quiz-options" role="group" aria-labelledby="quiz-q2">
+        <button type="button" class="option"><span class="option-text">Half of them by rail</span></button>
+        <button type="button" class="option"><span class="option-text">5 in 10 by walking, cycling or public transport</span></button>
+        <button type="button" class="option"><span class="option-text">9 in 10 by walking, cycling or public transport</span></button>
+      </div>
+      <p class="feedback" role="status"></p>
+    </div>
+    <div class="quiz-q" data-correct="0" data-explain="The permanent way is the track system.">
+      <p class="quiz-prompt" id="quiz-q3"><span class="checkin-label">Question 3 of 8</span> Which part of the railway is the permanent way?</p>
+      <div class="quiz-options" role="group" aria-labelledby="quiz-q3">
+        <button type="button" class="option"><span class="option-text">The track: rails, sleepers and ballast</span></button>
+        <button type="button" class="option"><span class="option-text">The trains and their bogies</span></button>
+        <button type="button" class="option"><span class="option-text">The high-voltage power grid</span></button>
+      </div>
+      <p class="feedback" role="status"></p>
+    </div>
+    <div class="quiz-q" data-correct="1" data-explain="Power flows from the national grid through bulk and traction substations to the third rail, then the train.">
+      <p class="quiz-prompt" id="quiz-q4"><span class="checkin-label">Question 4 of 8</span> Which order shows how power reaches a train?</p>
+      <div class="quiz-options" role="group" aria-labelledby="quiz-q4">
+        <button type="button" class="option"><span class="option-text">Traction substation, national grid, third rail, train</span></button>
+        <button type="button" class="option"><span class="option-text">National grid, bulk substation, traction substation, third rail, train</span></button>
+        <button type="button" class="option"><span class="option-text">Third rail, traction substation, bulk substation, train</span></button>
+      </div>
+      <p class="feedback" role="status"></p>
+    </div>
+    <div class="quiz-q" data-correct="2" data-explain="PSDs improve safety, the station climate and dwell time.">
+      <p class="quiz-prompt" id="quiz-q5"><span class="checkin-label">Question 5 of 8</span> What do platform screen doors do?</p>
+      <div class="quiz-options" role="group" aria-labelledby="quiz-q5">
+        <button type="button" class="option"><span class="option-text">Supply power to the station</span></button>
+        <button type="button" class="option"><span class="option-text">Control the speed of trains</span></button>
+        <button type="button" class="option"><span class="option-text">Separate the platform from the track and work with the train doors</span></button>
+      </div>
+      <p class="feedback" role="status"></p>
+    </div>
+    <div class="quiz-q" data-correct="3" data-explain="MTTR measures how fast a system can be restored, which is maintainability.">
+      <p class="quiz-prompt" id="quiz-q6"><span class="checkin-label">Question 6 of 8</span> In RAMS, which measure is linked to MTTR (Mean Time To Repair)?</p>
+      <div class="quiz-options" role="group" aria-labelledby="quiz-q6">
+        <button type="button" class="option"><span class="option-text">Safety</span></button>
+        <button type="button" class="option"><span class="option-text">Reliability</span></button>
+        <button type="button" class="option"><span class="option-text">Availability</span></button>
+        <button type="button" class="option"><span class="option-text">Maintainability</span></button>
+      </div>
+      <p class="feedback" role="status"></p>
+    </div>
+    <div class="quiz-q" data-correct="2" data-explain="Renew feeds back into Plan, so the life cycle is continuous.">
+      <p class="quiz-prompt" id="quiz-q7"><span class="checkin-label">Question 7 of 8</span> In the asset life cycle, which stage follows Renew?</p>
+      <div class="quiz-options" role="group" aria-labelledby="quiz-q7">
+        <button type="button" class="option"><span class="option-text">Acquire</span></button>
+        <button type="button" class="option"><span class="option-text">Operate</span></button>
+        <button type="button" class="option"><span class="option-text">Plan</span></button>
+        <button type="button" class="option"><span class="option-text">Maintain</span></button>
+      </div>
+      <p class="feedback" role="status"></p>
+    </div>
+    <div class="quiz-q" data-correct="0" data-explain="Red means the block ahead is occupied, so the train must stop before the signal.">
+      <p class="quiz-prompt" id="quiz-q8"><span class="checkin-label">Question 8 of 8</span> In the simulator, you approach a red signal. What should you do?</p>
+      <div class="quiz-options" role="group" aria-labelledby="quiz-q8">
+        <button type="button" class="option"><span class="option-text">Stop before the signal</span></button>
+        <button type="button" class="option"><span class="option-text">Speed up to clear the block</span></button>
+        <button type="button" class="option"><span class="option-text">Pass it with care</span></button>
+      </div>
+      <p class="feedback" role="status"></p>
+    </div>
+  <div class="quiz-score" data-score hidden>
+    <h3>Your score</h3>
+    <p class="quiz-score-number" data-score-text></p>
+    <p data-score-note></p>
+    <button type="button" data-quiz-restart>Try again</button>
+  </div>
+</section>
+</div>
+
+<div id="panel-simulator" class="panel" role="tabpanel" aria-labelledby="tab-simulator" hidden>
+<section class="lesson panel-body">
+  <p class="eyebrow">Practice simulator</p>
+  <div class="rule"></div>
   <h2>Signalling simulator</h2>
   <p>Block working keeps trains apart by letting only one train into a block at a time. Here you drive a train along a line of five blocks, behind Train 1, which stops and starts as it goes. A signal at the entry of each block tells you what to do.</p>
   <p>Your goal is to reach the end of the line without passing a red signal and without running into Train 1.</p>
@@ -644,26 +753,12 @@
       <li>Braking takes distance, so react at yellow, not at red.</li>
     </ul>
   </aside>
-  <form class="checkin" data-type="choice" data-correct="1" data-explain="Red means the block ahead is occupied, so the train must stop before the signal.">
-    <fieldset>
-      <legend><span class="checkin-label">Check-in</span> What should a driver do when the next signal shows red?</legend>
-      <label class="option"><input type="radio" name="q23" value="0"> <span>Slow down and pass with care</span></label>
-      <label class="option"><input type="radio" name="q23" value="1"> <span>Stop before the signal</span></label>
-      <label class="option"><input type="radio" name="q23" value="2"> <span>Speed up to clear the block quickly</span></label>
-    </fieldset>
-    <button type="submit">Check answer</button>
-    <p class="feedback" role="status"></p>
-  </form>
 </section>
+</div>
 
-</main>
-
-<nav class="pager" aria-label="Previous and next lesson">
-  <button id="prev-bottom" class="pager-button prev" type="button"><span class="pager-label">Previous</span><span class="pager-title"></span></button>
-  <button id="next-bottom" class="pager-button next" type="button"><span class="pager-label">Next</span><span class="pager-title"></span></button>
-</nav>
 
 <script src="simulator.js"></script>
+<script src="quiz.js"></script>
 <script src="script.js"></script>
 </body>
 </html>
